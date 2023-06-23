@@ -56,7 +56,7 @@ function HomePage() {
 
        
  
-         <img src="https://pbs.twimg.com/profile_images/1267713887165485061/WUR4QXtd_400x400.jpg" href="https://www.google.com" alt ="google " style={{width:"200px",height:"50px" ,marginLeft:"50px", marginTop:"20px"}}  />
+         <img src=" " href="https://www.google.com" alt ="google " style={{width:"200px",height:"50px" ,marginLeft:"50px", marginTop:"20px"}}  />
        
        
 
