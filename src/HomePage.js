@@ -53,11 +53,8 @@ function HomePage() {
 
        
  
-<<<<<<< HEAD
+
          <img src="" href="https://www.google.com" alt ="go " style={{width:"200px",height:"50px" ,marginLeft:"50px", marginTop:"20px"}}  />
-=======
-         <img src=" " href="https://www.google.com" alt ="google " style={{width:"200px",height:"50px" ,marginLeft:"50px", marginTop:"20px"}}  />
->>>>>>> 39855047b046303cd69f47ed661aa51faef942fa
        
        
 
