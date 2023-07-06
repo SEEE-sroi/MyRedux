@@ -10,14 +10,15 @@ export const ownSlice =   createSlice({
         state.value = action.payload;
 
     },
+    logout:(state,action)=>{
+        state.value = action.payload;
 
-    logout :(state)=>{
-        state.value = {name:"",age:0,emai:""};
+    },
 
-    }
+     
 
    },
 
 });
-export const {login ,logout} = ownSlice.actions;
+export const {login,logout} = ownSlice.actions;
 export default ownSlice.reducer;

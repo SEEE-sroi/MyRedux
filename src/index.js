@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom/client';
  
 import { configureStore } from '@reduxjs/toolkit';
 import reportWebVitals from './reportWebVitals';
-import HomeScreen from './HomeScreen';
+
 import { Provider } from 'react-redux';
-import ownReducer from "./ownSlice"
+import ownReducer from "./ownSlice";
+import CartUpdateReducer from './CartUpdateSlice';
 import App from './App';
 const store = configureStore({
     reducer :{
-      own: ownReducer
+      own: ownReducer,
+      CartUpdate: CartUpdateReducer,
     },
     });
 const root = ReactDOM.createRoot(document.getElementById('root'));

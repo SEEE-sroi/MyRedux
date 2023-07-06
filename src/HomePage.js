@@ -1,4 +1,4 @@
-import React from 'react';
+		import React from 'react';
 import styles from "./HomeScreen.module.css";
 import { useState ,useEffect} from 'react';
 import axios from 'axios';
@@ -8,16 +8,20 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { login } from './ownSlice';
+import CartUpdateSlice, { logout } from './CartUpdateSlice';
 
 function HomePage() {
   const [carts ,setCarts] = useState();
   const [users,setUsers] =useState([{}]);
   const [loading,setLoading]=useState([{}]);
   const cartvalue = useSelector((state)=>state.own.value);
+  const cartupdateCart = useSelector((state)=>state.CartUpdate.value);
+   
   const dispatch = useDispatch();
   const navigate = useNavigate();
-   
+   console.log(users);
   const handleClick = () => navigate('/GutenMorgen');
+  const handleClickTwo =()=> navigate('GutenAbend');
   const hhhh = (e)=> {
     setCarts(e.target.value);
   };
@@ -31,23 +35,16 @@ function HomePage() {
     
     },[]);   
 
-    //  axios ({
-    //   method:'POST',
-    //   mode:"cors",
-       
-    //   url:"https://dummyjson.com/products",
-       
-    //   headers:{
+     
 
-    //     "Accept":"application/json",
-    //     "content-Type":"application/json",
-        
-    //   }
-    // }).then(response=>{return response.json();})
-    // .then(responseData=>{console.log(responseData);
-    // return responseData;})
-    // .then(data =>setCart(cart + 1))
 
+
+
+   
+    
+   
+    
+    
   return (
     <div>
        <div>
@@ -56,7 +53,7 @@ function HomePage() {
 
        
  
-         <img src="" href="https://www.google.com" alt ="google " style={{width:"200px",height:"50px" ,marginLeft:"50px", marginTop:"20px"}}  />
+         <img src="" href="https://www.google.com" alt ="go " style={{width:"200px",height:"50px" ,marginLeft:"50px", marginTop:"20px"}}  />
        
        
 
@@ -71,18 +68,42 @@ function HomePage() {
         Become a seller
         </span>
         <span style={{color:"white", marginTop:"25px"}}>
-
-            More 
+          <p >More</p>
+             
         </span>
         <span style={{color:"white",marginBottom:"5px"}}>
         <button onClick={handleClick}>  Cart  {cartvalue.cart}  </button>
+        <button onClick={handleClickTwo}>Cart </button>
            
         </span>
+        
         </div>
        
        </div>
 
-      
+       <span >
+        Electronics
+      </span>
+      <span style={{paddingLeft:"40px"}}>
+        Tvs und Appliances
+      </span>
+      <span style={{paddingLeft:"40px"}}>
+        Junge
+      </span>
+      <span style={{paddingLeft:"40px"}}>
+        Starseite und Furniture
+      </span>
+      <a style={{paddingLeft:"40px"}} href="https://www.google.com">
+        Sports 
+      </a>
+      <span style={{paddingLeft:"40px"}}>
+        cricket
+
+      </span>
+      <span style={{paddingLeft:"40px"}}>
+
+        Flug
+      </span>
        <p>
        
         
@@ -112,6 +133,11 @@ function HomePage() {
 
            Add to cart BUY now 
          </button>
+         <button onClick={()=>dispatch(logout({cart :cartupdateCart.cart +  users.products && users.products.map((user)=>(<li key ={user.id}><div>{user.brand}</div></li>)) }))}>
+
+           Add to cart BUY now 
+         </button>
+         
          
           
          </div>
@@ -134,12 +160,11 @@ function HomePage() {
          
    
 
-      />
-      <Carttt 
-      
-      cart = {cartvalue.cart }
-      />
 
+      />
+     
+      
+       
 
 
       
