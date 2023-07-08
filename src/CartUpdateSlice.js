@@ -9,11 +9,15 @@ export const CartUpdateSlice =   createSlice({
         state.value = action.payload;
 
     },
+    login:(state,action)=>{
+        state.value = action.payload;
+
+    },
 
     
    }
    
 
 });
-export const {logout} = CartUpdateSlice.actions;
+export const {logout,login} = CartUpdateSlice.actions;
 export default CartUpdateSlice.reducer;

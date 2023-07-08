@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import Carttt from "./Carttt";
 import Bilder from "./Bilder";
 import Cartttttwo from "./Cartttttwo";
+import Cartt from "./Cartt";
 
 
 function App() {

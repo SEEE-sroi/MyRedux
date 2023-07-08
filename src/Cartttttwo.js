@@ -1,12 +1,13 @@
 import React from 'react';
  
-import { logout } from './CartUpdateSlice';
+import { logout,login } from './CartUpdateSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {useSelector} from "react-redux";
 function Cartttttwo() {
     
     const dispatch = useDispatch();
+     
     const navigate= useNavigate();
     const cartupdateCart = useSelector((state)=>state.CartUpdate.value);
     const heeloMoveBack = ()=>
@@ -15,10 +16,14 @@ function Cartttttwo() {
         <div>
            
           <button onclick={()=> dispatch(logout(cartupdateCart.cart))} style={{color:"blue"}}>
-            Total Items in Cart : {cartupdateCart.cart}    
+            Total Items in Cart : {cartupdateCart.cart}
+
             
           </button>
-        
+          <button onClick={()=>dispatch(login({cart:cartupdateCart.cart *0}))}>
+     Reset 
+
+     </button>
          <button onClick={heeloMoveBack}>
           Move Back zu StarsEIte
          </button>

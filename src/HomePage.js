@@ -9,10 +9,12 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { login } from './ownSlice';
 import CartUpdateSlice, { logout } from './CartUpdateSlice';
+import Cartt from './Cartt';
 
 function HomePage() {
   const [carts ,setCarts] = useState();
   const [users,setUsers] =useState([{}]);
+  const [cartss,setCartss] =useState ();
   const [loading,setLoading]=useState([{}]);
   const cartvalue = useSelector((state)=>state.own.value);
   const cartupdateCart = useSelector((state)=>state.CartUpdate.value);
@@ -24,6 +26,13 @@ function HomePage() {
   const handleClickTwo =()=> navigate('GutenAbend');
   const hhhh = (e)=> {
     setCarts(e.target.value);
+  };
+  const filterBySearch = (e)=>{
+    // const query = e.target.value;
+    // var updatedList = [...carts];
+  const   updatedList = users && users.products && users.products.map.filter((item)=> item.toLowerCase().indexOf(e.target.value.toLowerCase()) !== cartss.brand);
+    setLoading(updatedList);
+
   };
   useEffect(() => {
   
@@ -60,8 +69,8 @@ function HomePage() {
 
 
       
-        <input type ="search" placeholder="search for products, brands and more " style={{width:"1650px", marginBottom:"50px",marginTop:"20px",marginRight:"25px"}} onChange={(e)=>setLoading(e.target.value !== users.description)} />
-       
+        <input type ="search" placeholder="search for products, brands and more " style={{width:"1650px", marginBottom:"50px",marginTop:"20px",marginRight:"25px"}} onChange={(e)=>setUsers(e.target.value !== users.brand)}  />
+        <input type ="search" placeholder="search for products, brands and more " style={{width:"1650px", marginBottom:"50px",marginTop:"20px",marginRight:"25px"}} onChange={filterBySearch}  />
 
         <div><button style={{width:"200px", marginBottom:"50px",marginTop:"20px"}} > Login </button></div>
         
@@ -73,8 +82,8 @@ function HomePage() {
              
         </span>
         <span style={{color:"white",marginBottom:"5px"}}>
-        <button onClick={handleClick}>  Cart  {cartvalue.cart}  </button>
-        <button onClick={handleClickTwo}>Cart </button>
+        <button onClick={handleClick}> No of Items in Cart:  {cartvalue.cart}  </button>
+        <button onClick={handleClickTwo}>Wishlisted Products </button>
            
         </span>
         
@@ -112,6 +121,7 @@ function HomePage() {
        <div style={{color:"blue",textAlign:"center",backgroundColor:"yellow",fontSize:"25px"}}>
 
        Brand: {user.brand}
+        
        </div>
        
          
@@ -134,9 +144,10 @@ function HomePage() {
 
            Add to cart BUY now 
          </button>
-         <button onClick={()=>dispatch(logout({cart :cartupdateCart.cart +  users.products && users.products.map((user)=>(<li key ={user.id}><div>{user.brand}</div></li>)) }))}>
+         <button onClick={()=>dispatch(logout({cart :cartupdateCart.cart +  users.products && users.products.map((user)=>(<li key ={user.id}><div>{user.brand}
+         <br/>{user.title}</div></li>)) }))}>
 
-           Add to cart BUY now 
+           Add All  products for BUYing  now  to Future wishlist
          </button>
          
          
@@ -163,10 +174,7 @@ function HomePage() {
 
 
       />
-     
-      
-       
-
+ 
 
       
     </div>
